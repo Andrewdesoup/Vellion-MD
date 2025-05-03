@@ -1,0 +1,15 @@
+{
+  "name": "vellion-md",
+  "version": "1.0.0",
+  "description": "A WhatsApp bot with advanced features like ChatGPT, status view, and always-online mode.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@adiwajshing/baileys": "^5.0.0",
+    "openai": "^4.0.0"
+  },
+  "author": "𓄀Andrewฅʕ•̫͡•ʔฅ𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍",
+  "license": "MIT"
+}
