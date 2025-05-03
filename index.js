@@ -1,15 +1,22 @@
 const { default: makeWASocket, DisconnectReason, useSingleFileAuthState, fetchLatestBaileysVersion } = require('@adiwajshing/baileys');
 const { Boom } = require('@hapi/boom');
-const fs = require('fs');
 
 // Authentication file to store session
-const { state, saveState } = useSingleFileAuthState('./auth_info.json');
+let state, saveState;
+try {
+  const auth = require('@adiwajshing/baileys').useSingleFileAuthState('./auth_info.json');
+  state = auth.state;
+  saveState = auth.saveState;
+} catch (error) {
+  console.error('Failed to initialize useSingleFileAuthState. Ensure you are using the correct version of @adiwajshing/baileys.');
+  process.exit(1);
+}
 
 // Social Group Links and Owner Info
 const socialLinks = {
   whatsappGroup: 'https://chat.whatsapp.com/Lfdo2Q3RhM2GVAmgNXA1dc',
 };
-const ownerName = '𓄀Andrewฅʕ•̫͡•ʔฅ𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍';
+const ownerName = '𓄀Andrewฅʕ•̫͡•ʔฅ𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍𒐫𖤍';
 
 // Start Bot
 async function startBot() {
